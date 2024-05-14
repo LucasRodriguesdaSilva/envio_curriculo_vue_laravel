@@ -1,7 +1,7 @@
 <template>
-    <label :for="id"  class="form-label fw-bold">{{titulo}}</label>
+    <label :for="id"  class="form-label fw-bold">{{titulo}} {{ obrigatorio ? '*' : '' }} </label>
     <input 
-        class="form-control campo-input" 
+        class="form-control campo-input input-default " 
         :type="tipo" 
         :required="obrigatorio" 
         :id="id" 

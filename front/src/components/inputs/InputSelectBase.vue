@@ -1,6 +1,6 @@
 <template>
-    <label for="id" class="form-label fw-bold">Escolariadade</label>
-    <select id="id" @change="atualizarSelecionado" :required="obrigatorio" class="form-control campo-select">
+    <label for="id" class="form-label fw-bold">{{ titulo }} {{ obrigatorio ? '*' : '' }}</label>
+    <select id="id" @change="atualizarSelecionado" :required="obrigatorio" class="form-control campo-select form-select">
         <option value="" selected disabled>Selecione uma Opção</option>
         <option v-for="opcao in opcoes" :key="opcao.id" :value="opcao.id" v-bind="$attrs">
             {{ opcao.valor }}
@@ -14,6 +14,7 @@
     defineProps({
         opcoes: Array,
         obrigatorio: { type: Boolean, default: false},
+        titulo: String
 
     })
     

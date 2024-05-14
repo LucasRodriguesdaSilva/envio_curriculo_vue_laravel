@@ -6,7 +6,7 @@
         <div class="mt-4">
             <form @submit.prevent="submitForm">
                 <div class="row">
-                    <div class="mb-3 col col-12 col-sm-6">
+                    <div class="mb-3 col col-12 col-sm-6 ">
                         <InputBase
                             v-model="formData.nome" 
                             id="input_nome" 
@@ -45,7 +45,7 @@
                         />
                     </div>
                     <div class="mb-3 col col-12 col-sm-6">
-                        <InputSelectBase :opcoes="opcoesEscolaridade" v-model:selecionado="formData.escolaridade" :obrigatorio="true" />                        
+                        <InputSelectBase :opcoes="opcoesEscolaridade" titulo="Escolaridade" v-model:selecionado="formData.escolaridade" :obrigatorio="true" />                        
                     </div>
                     <div class="mb-3 col col-12 col-sm-6">
                         <InputTextarea id="input_obs" titulo="Observação" v-model="formData.obs"/>
