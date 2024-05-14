@@ -1,7 +1,7 @@
 <template>
-    <label :for="id"  class="form-label">{{titulo}}</label>
+    <label :for="id"  class="form-label fw-bold">{{titulo}}</label>
     <input 
-        class="form-control" 
+        class="form-control campo-input" 
         :type="tipo" 
         :required="obrigatorio" 
         :id="id" 
@@ -25,4 +25,9 @@
 </script>
 
 <style scoped>
+    .campo-input {
+        background-color: #f8f6f6;
+        border-radius: 20px;
+        border: 1px solid #b3b1b1;
+    }
 </style>

@@ -1,7 +1,7 @@
 <template>
-    <label :for="id" class="form-label">{{ titulo }}</label>
-    <input type="file" @change="handleFile" class="form-control" :id="id" :required="obrigatorio">
-    <div v-if="mostrarErro"  class="form-text text-danger mt-1 mb-0"> {{  msg_erro }} </div>
+    <label :for="id" class="form-label fw-bold">{{ titulo }}</label>
+    <input type="file" @change="handleFile" class="form-control campo-arq" :id="id" :required="obrigatorio">
+    <div v-if="error.exibir"  class="form-text text-danger mt-1 mb-0"> {{  error.msg }} </div>
     <div class="form-text">Formatos Suportados: {{ string_extensoes }} <br> Tam. máximo: {{ tamMax }}MB</div>
 </template>
 
@@ -18,8 +18,10 @@
 
     const string_extensoes = props.extensoes.join(', ');
     const TAMANHO_MAXIMO = props.tamMax * (1024 * 1024);
-    const msg_erro = ref('');
-    const mostrarErro = ref(''); 
+    const error = ref({
+        msg: '',
+        exibir: false
+    });
 
     const mimeTypes = [
                         'application/pdf',
@@ -30,23 +32,25 @@
 
     const emit = defineEmits(['update:anexo']);
 
+    const exibirMsgErro = (exibir=false, msg='') => {
+        error.value.exibir = exibir;
+        error.value.msg = msg;
+    }
+
     const validarAnexo = (arquivo) => {
 
         if (arquivo === null || arquivo === undefined) {
-            msg_erro.value = 'Por favor, adicione um anexo!';
-            mostrarErro.value = true;
+            exibirMsgErro(true, 'Por favor, adicione um anexo!');
             return false;
         }
 
         if(!mimeTypes.includes(arquivo.type)) {
-            msg_erro.value = 'Arquivo não suportado!';
-            mostrarErro.value = true;
+            exibirMsgErro(true, 'Arquivo não suportado!');
             return false;
         }
 
         if(arquivo.size > TAMANHO_MAXIMO) {
-            msg_erro.value = 'O tamanho máximo é de ' + props.tamMax + 'MB';
-            mostrarErro.value = true;
+            exibirMsgErro(true, 'O tamanho máximo é de ' + props.tamMax + 'MB');
             return false;
         }
 
@@ -58,7 +62,7 @@
     }
 
     const handleFile = (event) => {
-        mostrarErro.value = false;
+        exibirMsgErro();
         const input = getElementById(props.id);
         const anexo = event.target.files[0];
 
@@ -75,4 +79,9 @@
 </script>
 
 <style scoped>
+    .campo-arq {
+        background-color: #f8f6f6;
+        border-radius: 0 20px 20px 0;
+        border: 1px solid #b3b1b1;
+    }
 </style>

@@ -1,6 +1,9 @@
 <template>
-    <div class="border container-fluid cor-fundo-form">
-        <div class="p-4">
+    <div v-if="error.exibir" class="border bg-danger text-white">
+        <p class="p-2 m-0 text-center"> {{ error.msg }}</p>
+    </div>
+    <div class="container-fluid cor-fundo-form">
+        <div class="mt-4">
             <form @submit.prevent="submitForm">
                 <div class="row">
                     <div class="mb-3 col col-12 col-sm-6">
@@ -29,7 +32,7 @@
                             titulo="Telefone" 
                             type="text" 
                             :obrigatorio="true"
-                            placeholder="( XX ) XXXXX-XXXX"
+                            placeholder="(XX) XXXXX-XXXX"
                         />
                     </div>
                     <div class="mb-3 col col-12 col-sm-6">
@@ -53,7 +56,7 @@
                         <InputArquivo id="input_arq" titulo="Currículo" :extensoes="extensoesAceitas" :obrigatorio="true" @update:anexo="setFile" />
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary col col-12 col-sm-12 rounded-pill">Enviar Currículo</button>
             </form>
         </div>
     </div>
@@ -74,6 +77,10 @@ const opcoesEscolaridade = ref([
 ]);
 
 const extensoesAceitas = ref(['.pdf','.doc','.docx']);
+const error = ref({
+    msg: '',
+    exibir: false
+})
 
 const formData = ref({
     nome: '',
@@ -86,18 +93,35 @@ const formData = ref({
 });
 
 
-const submitForm = () => {
-    console.log(formData.value)
-}
-
 const setFile = (newFile) => {
     formData.value.curriculo = newFile;    
 }
 
+const validadores = {
+    tel: (numTelefone) => {
+        const phoneRegex = /^(?:\(?([1-9][0-9])\)?[\s-]?)?(?:(?:9\d{4}|[2-9]\d{3})[\s-](\d{4}))$/;
+        return phoneRegex.test(numTelefone);
+    },
+    cel: (numCelular) => {
+        const phoneRegex = /^\(?[0-9]{2}\)?[\s-]?[0-9]{4,5}[\s-]?[0-9]{4}$/;
+        return phoneRegex.test(numCelular);
+    }
+}
+
+const exibirMsgErro = (exibir=false, msg='') => {
+    error.value.exibir = exibir;
+    error.value.msg = msg;
+}
+
+const submitForm = () => {
+    exibirMsgErro();
+    const {telefone} = formData.value;
+    if (!validadores.tel(telefone) || !validadores.cel(telefone)) 
+        return exibirMsgErro(true, 'O Telefone não é válido');
+
+    console.log(formData.value)
+}
 </script>
 
 <style scoped>
-    .cor-fundo-form {
-        background-color: #ffffff;
-    }
 </style>

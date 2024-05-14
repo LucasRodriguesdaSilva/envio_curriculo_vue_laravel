@@ -1,6 +1,6 @@
 <template>
-    <label for="id" class="form-label">Escolariadade</label>
-    <select id="id" @change="atualizarSelecionado" :required="obrigatorio">
+    <label for="id" class="form-label fw-bold">Escolariadade</label>
+    <select id="id" @change="atualizarSelecionado" :required="obrigatorio" class="form-control campo-select">
         <option value="" selected disabled>Selecione uma Opção</option>
         <option v-for="opcao in opcoes" :key="opcao.id" :value="opcao.id" v-bind="$attrs">
             {{ opcao.valor }}
@@ -27,4 +27,9 @@
 </script>
 
 <style scoped>
+    .campo-select {
+        background-color: #f8f6f6;
+        border-radius: 20px;
+        border: 1px solid #b3b1b1;
+    }
 </style>
