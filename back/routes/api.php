@@ -8,4 +8,4 @@ Route::get('/', function (Request $request) {
     return json_encode(['status' => 200, 'retorno' => 'Ok']);
 });
 
-Route::get('/curriculo',[Curriculo::class, 'cadastrar']);
+Route::post('/curriculo/cadastrar',[Curriculo::class, 'cadastrar']);
