@@ -15,12 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('candidato');
             $table->string('email');
-            $table->string('telefone',100);
-            $table->string('cargo',255);
-            $table->string('obs')->nullable();
+            $table->string('telefone',length: 50);
+            $table->string('cargo');
+            $table->text('obs')->nullable();
             $table->string('nome_anexo');
+            $table->string('tipo_anexo');
             $table->string('caminho_anexo');
-            $table->string('escolaridade',255);
+            $table->string('escolaridade',length:100);
+            $table->string('ip', length:50);
+            $table->timestamp('data_hora_envio_email')->nullable();
             $table->timestamps();
         });
     }

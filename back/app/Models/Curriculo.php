@@ -17,6 +17,9 @@ class Curriculo extends Model
         'escolaridade',
         'obs',
         'nome_anexo',
+        'tipo_anexo',
+        'ip',
+        'data_hora_envio_email',
         'caminho_anexo'
     ];
 }
