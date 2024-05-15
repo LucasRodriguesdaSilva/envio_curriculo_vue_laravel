@@ -27,7 +27,7 @@ class Curriculo extends Controller implements CurriculoInterface, CurriculoMail,
         $modelsCurriculo = self::cadastrar($dados_validados);
         self::enviarEmail($modelsCurriculo);       
  
-        return response()->json('success');
+        return response()->json(['success']);
     }
 
     static function cadastrar(array $dadosValidados): ModelsCurriculo
