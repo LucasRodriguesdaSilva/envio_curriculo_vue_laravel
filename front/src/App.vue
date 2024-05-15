@@ -18,6 +18,6 @@ import FormComponente from './components/forms/FormCurriculo.vue';
 
 <style scoped>
   .cor-fundo-form {
-        background-color: #ffffff;
+        background-color: #fff;
     }
 </style>

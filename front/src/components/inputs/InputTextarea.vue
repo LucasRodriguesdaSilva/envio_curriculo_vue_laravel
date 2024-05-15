@@ -1,5 +1,5 @@
 <template>
-    <label :for="id" class="form-label fw-bold">{{ titulo }}</label>
+    <label :for="id" class="form-label fw-bold cor-texto-padrao">{{ titulo }}</label>
     <textarea class="form-control campo-text" :id="id" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"></textarea>
 </template>
 

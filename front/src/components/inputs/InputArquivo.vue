@@ -1,8 +1,8 @@
 <template>
-    <label :for="id" class="form-label fw-bold">{{ titulo }} {{ obrigatorio ? '*' : '' }}</label>
+    <label :for="id" class="form-label fw-bold cor-texto-padrao">{{ titulo }} {{ obrigatorio ? '*' : '' }}</label>
     <input type="file" @change="handleFile" class="form-control campo-arq" :id="id" :required="obrigatorio">
     <div v-if="error.exibir"  class="form-text text-danger mt-1 mb-0"> {{  error.msg }} </div>
-    <div class="form-text">Formatos Suportados: {{ string_extensoes }} <br> Tam. máximo: {{ tamMax }}MB</div>
+    <div class="form-text cor-texto-padrao">Formatos Suportados: {{ string_extensoes }} <br> Tam. máximo: {{ tamMax }}MB</div>
 </template>
 
 <script setup>

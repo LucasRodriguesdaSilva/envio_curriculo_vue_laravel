@@ -1,5 +1,5 @@
 <template>
-    <label :for="id"  class="form-label fw-bold">{{titulo}} {{ obrigatorio ? '*' : '' }} </label>
+    <label :for="id"  class="form-label fw-bold cor-texto-padrao">{{titulo}} {{ obrigatorio ? '*' : '' }} </label>
     <input 
         class="form-control campo-input input-default " 
         :type="tipo" 
@@ -9,7 +9,7 @@
         :value="modelValue" 
         @input="$emit('update:modelValue', $event.target.value)"
         v-bind="$attrs">
-    <div v-if="obs" class="form-text">{{obs}}</div>
+    <div v-if="obs" class="form-text cor-texto-padrao">{{obs}}</div>
 </template>
 
 <script setup>
