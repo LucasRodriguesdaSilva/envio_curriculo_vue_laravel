@@ -2,7 +2,7 @@
     <label for="id" class="form-label fw-bold cor-texto-padrao">{{ titulo }} {{ obrigatorio ? '*' : '' }}</label>
     <select id="id" @change="atualizarSelecionado" :required="obrigatorio" class="form-control campo-select form-select">
         <option value="" selected disabled>Selecione uma Opção</option>
-        <option v-for="opcao in opcoes" :key="opcao.id" :value="opcao.id" v-bind="$attrs">
+        <option v-for="opcao in opcoes" :key="opcao.id" :value="opcao.valor" v-bind="$attrs">
             {{ opcao.valor }}
         </option>
     </select>
