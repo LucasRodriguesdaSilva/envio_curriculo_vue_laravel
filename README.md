@@ -30,7 +30,7 @@ Siga os passos abaixo para instalar e configurar o projeto:
 
 1. Clone o repositório para sua máquina local.
 2. Configure o arquivo `.env` na pasta `back` conforme necessário.
-3. Execute `composer install` na pasta `back`.
+3. Execute `composer install` na pasta `back`. Se houver algum erro de versão do php adicione --ignore-platform-reqs no final.
 4. (Opcional) Execute `npm install` na pasta `front`. Certifique-se de que o Node.js e o npm estejam na versão utilizada neste projeto ou superior.
 
 ## Como Usar
