@@ -1,7 +1,3 @@
-Claro, aqui está uma versão melhorada do README:
-
----
-
 # FORMULÁRIO DE ENVIO DE CURRÍCULO
 
 Este projeto consiste em uma aplicação para o envio de currículos (formatos PDF, DOC e DOCX) para o backend. Após o envio, as informações do currículo são armazenadas no banco de dados e, em seguida, é enviado um e-mail contendo os dados do formulário.
