@@ -1,12 +1,12 @@
+Claro, aqui está uma versão melhorada do README:
+
+---
+
 # FORMULÁRIO DE ENVIO DE CURRÍCULO
 
-Este projeto consiste em uma aplicação para o envio de currículos em formato PDF para um backend. Após o envio, as informações do currículo são armazenadas no banco de dados e, em seguida, é enviado um e-mail contendo os dados do formulário.
+Este projeto consiste em uma aplicação para o envio de currículos (formatos PDF, DOC e DOCX) para o backend. Após o envio, as informações do currículo são armazenadas no banco de dados e, em seguida, é enviado um e-mail contendo os dados do formulário.
 
 Através dessa solução, os usuários podem facilmente submeter seus currículos de forma eficiente, enquanto o sistema automatiza o processo de armazenamento e notificação para os responsáveis pelo recrutamento.
-
-Esta aplicação é útil para simplificar o processo de recrutamento, oferecendo uma maneira rápida e conveniente para os candidatos submeterem seus currículos e para os recrutadores receberem e processarem essas informações de maneira organizada.
-
-
 
 ## Tecnologias e Frameworks Utilizados
 
@@ -17,9 +17,12 @@ Esta aplicação é útil para simplificar o processo de recrutamento, oferecend
 - **PHP**: Versão 8.2.18.
 - **Node.js**: Versão 20.13.1.
 - **NPM**: Versão 10.5.2.
-- **Postgresql**: versão 15.6
+- **PostgreSQL**: Versão 15.6
+
 
 ## Requisitos
+
+Para executar este projeto, você precisará dos seguintes requisitos:
 
 - **Docker**: Versão 26.1.2 ou superior.
 - **PHP**: Versão 8.2.18
@@ -27,18 +30,18 @@ Esta aplicação é útil para simplificar o processo de recrutamento, oferecend
 
 ## Instalação e Configuração
 
-Para instalar e configurar o projeto, siga os passos abaixo:
+Siga os passos abaixo para instalar e configurar o projeto:
 
 1. Clone o repositório para sua máquina local.
-2. Configure o `.env` da pasta `back` de ambiente conforme necessário.
-3. Faça `composer install` na pasta `back`
-4. (Opicional) Faça `npm install` na pasta `front`. É nescessário o node e o npm na versão utilizada nesse projeto ou superior.
+2. Configure o arquivo `.env` na pasta `back` conforme necessário.
+3. Execute `composer install` na pasta `back`.
+4. (Opcional) Execute `npm install` na pasta `front`. Certifique-se de que o Node.js e o npm estejam na versão utilizada neste projeto ou superior.
 
 ## Como Usar
 
-### Utilizando o [Docker](https://docs.docker.com/engine/)
+### Utilizando o Docker
 
-- Na raiz do projeto faça:
+1. Na raiz do projeto, execute:
 
 ```bash
 docker compose build
@@ -50,22 +53,42 @@ docker compose up
 
 Acesse a aplicação em `http://localhost`.
 
-## Informações
+## Informações Adicionais
 
-- O Arquivo `.env.example` demonstra uma configuração padrão.
+- O arquivo `.env.example` contém uma configuração padrão para o arquivo `.env`.
+- Os resultados dos testes serão mostrados nos logs do `docker compose up`.
 
 ## Testes da Aplicação
 
-Para executar os testes da aplicação entre no container onde esta o projeto laravel e faça
+Para executar os testes da aplicação, entre no container onde o projeto Laravel está localizado:
+
+```bash
+docker exec -it <id_do_container> bash
+```
+
+E execute:
 
 ```bash
 php artisan test
 ```
 
+## Informações que são salvas no banco de dados
+- Nome do Candidato
+- Endereço de E-mail
+- Número de Telefone
+- Cargo Desejado
+- Escolaridade
+- Observações
+- Nome do Anexo Enviado
+- Tipo do Anexo Enviado
+- Ip do usuário
+- Data e Hora do Envio dos dados 
+- Data e Hora do Envio do E-mail
+
 ## Contribuição
 
-Sinta-se à vontade para contribuir com este projeto através de pull requests. Qualquer contribuição é bem-vinda!
+Sinta-se à vontade para contribuir com este projeto através de pull requests. Toda contribuição é bem-vinda!
 
 ## Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
