@@ -6,9 +6,9 @@ Através dessa solução, os usuários podem facilmente submeter seus currículo
 
 ## Tecnologias e Frameworks Utilizados
 
-- **Laravel 11**
-- **Vue.js 3**
-- **Bootstrap 5**
+- **Laravel**: Versão 11
+- **Vue.js**: Versão 3
+- **Bootstrap**: Versão 5
 - **Docker**: Versão 26.1.2 ou superior.
 - **PHP**: Versão 8.2.18.
 - **Node.js**: Versão 20.13.1.
