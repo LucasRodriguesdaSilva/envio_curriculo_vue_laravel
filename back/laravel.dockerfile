@@ -18,10 +18,13 @@ COPY . .
 
 RUN composer install --no-interaction
 
-
 EXPOSE 8000
 
-CMD php artisan migrate && php artisan key:generate \
+
+CMD php artisan key:generate --env=testing \
+    && php artisan migrate --env=testing \ 
+    && php artisan test && php artisan migrate \
+    && php artisan key:generate \
     && php artisan serve --host=0.0.0.0 --port=8000
 
 

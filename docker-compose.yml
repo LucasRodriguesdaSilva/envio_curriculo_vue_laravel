@@ -10,6 +10,7 @@ services:
       - 5432:5432
 
   app:
+    restart: always
     build: 
       context: ./back
       dockerfile: laravel.dockerfile
@@ -21,6 +22,7 @@ services:
       - 8000:8000
       
   web:
+    restart: always
     build:
       context: ./front
       dockerfile: vue.dockerfile
@@ -32,4 +34,4 @@ services:
       - app
 
 volumes:
-  pgdata:
+  dbdata:
